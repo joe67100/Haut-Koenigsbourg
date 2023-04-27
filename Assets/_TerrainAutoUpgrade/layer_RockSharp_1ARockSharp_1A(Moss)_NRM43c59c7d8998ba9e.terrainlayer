@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1953259897 &8574412962073106934
+TerrainLayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: layer_RockSharp_1ARockSharp_1A(Moss)_NRM43c59c7d8998ba9e
+  m_DiffuseTexture: {fileID: 2800000, guid: 7d2c376bf3ec3e846849a3b9c19b9cfb, type: 3}
+  m_NormalMapTexture: {fileID: 2800000, guid: a507efafd20d46348bc1847ccda8a3cc, type: 3}
+  m_MaskMapTexture: {fileID: 0}
+  m_TileSize: {x: 6, y: 6}
+  m_TileOffset: {x: 0, y: 0}
+  m_Specular: {r: 0, g: 0, b: 0, a: 0}
+  m_Metallic: 0.603
+  m_Smoothness: 0.143
+  m_NormalScale: 1
+  m_DiffuseRemapMin: {x: 0, y: 0, z: 0, w: 0}
+  m_DiffuseRemapMax: {x: 1, y: 1, z: 1, w: 1}
+  m_MaskMapRemapMin: {x: 0, y: 0, z: 0, w: 0}
+  m_MaskMapRemapMax: {x: 1, y: 1, z: 1, w: 1}
