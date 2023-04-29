@@ -67,7 +67,7 @@ public class VideoOptionsController : MonoBehaviour
         switch (framerateIndex)
         {
             case 0:
-                Application.targetFrameRate = -1;
+                Application.targetFrameRate = 200;
                 break;
             case 1:
                 Application.targetFrameRate = 144;
