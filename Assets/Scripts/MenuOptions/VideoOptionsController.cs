@@ -13,34 +13,20 @@ public class VideoOptionsController : MonoBehaviour
     private const string RESOLUTION_INDEX = "resolutionIndex";
     private const string FULL_SCREEN_TOGGLE = "fullScreenToggle";
     private const string FRAMERATE_INDEX = "framerateIndex";
+    private const string BRIGHTNESS = "brightness";
 
     [SerializeField] private Toggle fullScreenToggle;
     [SerializeField] private TMP_Dropdown graphicsDropdown;
     [SerializeField] private TMP_Dropdown resolutionDropdown;
     [SerializeField] private TMP_Dropdown framerateDropdown;
+    [SerializeField] private Button resetSettings;
 
     [SerializeField] private Slider brightnessSlider;
-    [SerializeField] private PostProcessProfile brightness;
-    [SerializeField] private PostProcessLayer layer;
-
-    AutoExposure exposure;
-
-    private void Start()
-    {
-        brightness.TryGetSettings(out exposure);
-        SetBrightness(brightnessSlider.value);
-    }
 
     public void SetBrightness(float value)
     {
-        if(value != 0)
-        {
-            exposure.keyValue.value = value;
-        }
-        else
-        {
-            exposure.keyValue.value = .05f;
-        }
+        RenderSettings.ambientIntensity = value;
+        PlayerPrefs.SetFloat(BRIGHTNESS, value);
     }
 
     public void SetFullScreen(bool isFullScreen)
@@ -79,5 +65,19 @@ public class VideoOptionsController : MonoBehaviour
                 break;
         }
         PlayerPrefs.SetInt(FRAMERATE_INDEX, framerateIndex);
+    }
+    
+    public void ResetAllSettings()
+    {
+        PlayerPrefs.DeleteKey(QUALITY_INDEX);
+        PlayerPrefs.DeleteKey(RESOLUTION_INDEX);
+        PlayerPrefs.DeleteKey(FULL_SCREEN_TOGGLE);
+        PlayerPrefs.DeleteKey(FRAMERATE_INDEX);
+        PlayerPrefs.DeleteKey(BRIGHTNESS);
+
+        graphicsDropdown.value = 0;
+        framerateDropdown.value = 0;
+        fullScreenToggle.isOn = true;
+        brightnessSlider.value = 1.8f;
     }
 }

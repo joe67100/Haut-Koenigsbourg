@@ -16,10 +16,12 @@ public class LoadPrefs : MonoBehaviour
     private const string RESOLUTION_INDEX = "resolutionIndex";
     private const string FULL_SCREEN_TOGGLE = "fullScreenToggle";
     private const string FRAMERATE_INDEX = "framerateIndex";
+    private const string BRIGHTNESS = "brightness";
     [SerializeField] private Toggle fullScreenToggle;
     [SerializeField] private TMP_Dropdown graphicsDropdown;
     [SerializeField] private TMP_Dropdown resolutionDropdown;
     [SerializeField] private TMP_Dropdown framerateDropdown;
+    [SerializeField] private Slider brightnessSlider;
     public List<Resolution> resolutions;
 
     private void Awake()
@@ -54,6 +56,15 @@ public class LoadPrefs : MonoBehaviour
         else
         {
             LoadFramerate();
+        }
+        if (!PlayerPrefs.HasKey(BRIGHTNESS))
+        {
+            PlayerPrefs.SetFloat(BRIGHTNESS, (float)1.8);
+            LoadBrightness();
+        }
+        else
+        {
+            LoadBrightness();
         }
 
 
@@ -111,6 +122,11 @@ public class LoadPrefs : MonoBehaviour
     private void LoadResolution()
     {
         resolutionDropdown.value = PlayerPrefs.GetInt(RESOLUTION_INDEX);
+    }
+    
+    private void LoadBrightness()
+    {
+        brightnessSlider.value = PlayerPrefs.GetFloat(BRIGHTNESS);
     }
 
     private List<Resolution> GetResolutions()
