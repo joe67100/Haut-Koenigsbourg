@@ -9,32 +9,52 @@ public class DisplayTitle : MonoBehaviour
     public GameObject titleObject; // Le GameObject contenant le composant "Text"
 
     private float timer = 0.0f;
+    private bool isFadingIn = false;
     private bool isDisplaying = false;
+    private bool isFadingOut = false;
 
     private void Start()
     {
-        // Initialisation texte en transparent
-        titleText.color = Color.clear; 
-        titleObject.SetActive(false);
+        // Initialisation texte en blanc, alpha 0
+        titleText.color = new Color(1f, 1f, 1f, 0f);
 
         // Affichage test
-        SetText("Test");
+        SetText("Texte Titre");
     }
 
     private void Update()
     {
-        if (isDisplaying)
+        if (isFadingIn)
+        {
+            titleText.color = new Color(titleText.color.r, titleText.color.g, titleText.color.b, titleText.color.a + (Time.deltaTime / displayTime));
+
+            // Si le texte est entièrement affiché, on passe à l'étape isDisplaying
+            if (titleText.color.a >= 0.95f)
+            {
+                isFadingIn = false;
+                isDisplaying = true;
+                timer = 0.0f;
+            }
+        }
+        else if (isDisplaying)
         {
             timer += Time.deltaTime;
 
-            // Afficher progressivement le texte (augmente l'alpha)
-            titleText.color = Color.Lerp(Color.clear, Color.white, timer / displayTime);
-
-            // Si le temps d'affichage est écoulé, cacher le texte
+            // Si le temps d'affichage est écoulé, on passe à l'étape isFadingOut
             if (timer > displayTime)
             {
                 isDisplaying = false;
-                titleObject.SetActive(false);
+                isFadingOut = true;
+            }
+        }
+        else if (isFadingOut)
+        {
+            // Cacher progressivement le texte (diminue l'alpha)
+            titleText.color = new Color(titleText.color.r, titleText.color.g, titleText.color.b, titleText.color.a - (Time.deltaTime / displayTime));
+
+            if (titleText.color.a <= 0.0f)
+            {
+                isFadingOut = false;
             }
         }
     }
@@ -42,8 +62,7 @@ public class DisplayTitle : MonoBehaviour
     public void SetText(string text)
     {
         titleText.text = text;
-        titleObject.SetActive(true); // Activer le GameObject contenant le texte
-        isDisplaying = true;
+        isFadingIn = true;
         timer = 0.0f; // Réinitialiser le timer
     }
 }
