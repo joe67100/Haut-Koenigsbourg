@@ -78,6 +78,6 @@ public class VideoOptionsController : MonoBehaviour
         graphicsDropdown.value = 0;
         framerateDropdown.value = 0;
         fullScreenToggle.isOn = true;
-        brightnessSlider.value = 1.8f;
+        brightnessSlider.value = 1f;
     }
 }
