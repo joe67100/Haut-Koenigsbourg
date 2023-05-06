@@ -44,31 +44,9 @@ public class MouseLook : MonoBehaviour
     **/
     void Update()
     {
-        LockAndUnlockCursor();
-
         if (Cursor.lockState == CursorLockMode.Locked)
         {
             LookAround();
-        }
-    }
-
-    /**
-     * @brief   Lock and unlock cursor with escape key
-     * @return  void
-    **/
-    void LockAndUnlockCursor()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (Cursor.lockState == CursorLockMode.Locked)
-            {
-                Cursor.lockState = CursorLockMode.None;
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
         }
     }
 

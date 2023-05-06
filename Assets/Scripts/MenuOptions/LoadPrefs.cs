@@ -59,7 +59,7 @@ public class LoadPrefs : MonoBehaviour
         }
         if (!PlayerPrefs.HasKey(BRIGHTNESS))
         {
-            PlayerPrefs.SetFloat(BRIGHTNESS, 1);
+            PlayerPrefs.SetFloat(BRIGHTNESS, (float)1.8);
             LoadBrightness();
         }
         else
