@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -14,7 +11,7 @@ public class PauseMenu : MonoBehaviour
     private void Update()
     {
         if (!characterController.isGrounded) return;
-        
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
@@ -27,7 +24,7 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
-    
+
     public void Resume()
     {
         isPaused = false;

@@ -23204,6 +23204,8 @@ GameObject:
   - component: {fileID: 794985778}
   - component: {fileID: 794985777}
   - component: {fileID: 794985780}
+  - component: {fileID: 794985781}
+  - component: {fileID: 794985782}
   m_Layer: 3
   m_Name: Main Camera Menu
   m_TagString: MainCamera
@@ -23301,15 +23303,48 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 0
+  m_Antialiasing: 2
   m_AntialiasingQuality: 2
   m_StopNaN: 0
-  m_Dithering: 0
+  m_Dithering: 1
   m_ClearDepth: 1
   m_AllowXRRendering: 1
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!95 &794985781
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794985776}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5db6b6099f10ece4bba0772626b1526f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &794985782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794985776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2bcd5aedade7840b1e6fd1f871c1d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforePlayingAnimation: 20
 --- !u!1001 &796590637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25743,6 +25778,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 879668037}
+  - component: {fileID: 879668038}
   m_Layer: 0
   m_Name: MainMenu
   m_TagString: Untagged
@@ -25773,6 +25809,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &879668038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879668036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e720c1a44374a458c7281f3e1288b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuCanvas: {fileID: 1481980809}
+  inactiveTime: 20
 --- !u!1001 &881127190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39445,7 +39495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6755461371627010925, guid: 731314825f8ec60488cb47290d9a59e8, type: 3}
       propertyPath: m_Dithering
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6755461371627010925, guid: 731314825f8ec60488cb47290d9a59e8, type: 3}
       propertyPath: m_Antialiasing
