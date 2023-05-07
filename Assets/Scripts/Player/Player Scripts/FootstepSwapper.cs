@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VHS;
 
 public class FootstepSwapper : MonoBehaviour
 {
     private CharacterController character_Controller;
-    private PlayerMovement fpc;
+    private FirstPersonController fpc;
     private TerrainChecker checker;
     private string currentLayer;
     public FootstepCollection[] terrainFootstepCollections;
@@ -14,7 +15,7 @@ public class FootstepSwapper : MonoBehaviour
     void Start()
     {
         checker = new TerrainChecker();
-        fpc = GetComponent<PlayerMovement>();
+        fpc = GetComponent<FirstPersonController>();
 
     }
 

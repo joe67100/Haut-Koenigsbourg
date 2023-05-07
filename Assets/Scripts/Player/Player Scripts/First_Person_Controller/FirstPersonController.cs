@@ -567,6 +567,13 @@ namespace VHS
 
                     transform.rotation = Quaternion.Slerp(_currentRot,_desiredRot,Time.deltaTime * smoothRotateSpeed);
                 }
+        #endregion
+
+            #region Footsteps
+                public void SwapFootsteps(FootstepCollection collection)
+                {
+                    return;
+                }
             #endregion
         #endregion
     }
