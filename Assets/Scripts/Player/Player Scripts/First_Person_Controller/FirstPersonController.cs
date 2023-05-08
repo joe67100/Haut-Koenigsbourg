@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 using NaughtyAttributes;
+using Random = UnityEngine.Random;
+using System.Collections.Generic;
 
 namespace VHS
 {
@@ -79,12 +81,30 @@ namespace VHS
                     [InfoBox("It should smooth our player movement to not start fast and not stop fast but it's somehow jerky", InfoBoxType.Warning)]
                     [Tooltip("If set to very high it will stop player immediately after releasing input, otherwise it just another smoothing to our movement to make our player not move fast immediately and not stop immediately")]
                     [ShowIf("experimental")] [Range(1f,100f)] [SerializeField] private float smoothInputMagnitudeSpeed = 5f;
-                    
-                #endregion
-            #endregion
-            #region Private Non-Serialized
-                #region Components / Custom Classes / Caches
-                    private CharacterController m_characterController;
+
+        #endregion
+
+                #region Footsteps
+                    [Space, Header("Footsteps")]
+                    [SerializeField] private List<AudioClip> m_FootstepSounds = new List<AudioClip>();
+                    [SerializeField] private AudioClip m_JumpSound;
+                    [SerializeField] private AudioClip m_LandSound;
+                    [SerializeField] private float m_StepInterval;
+                    private AudioSource m_AudioSource;
+                    [SerializeField] private float m_StepCycle;
+                    [SerializeField] private float m_NextStep;
+                    private FootstepSwapper footstepSwapper;
+                    public FootstepCollection[] terrainFootstepCollections;
+                    [SerializeField] private bool m_IsWalking;
+                    [SerializeField][Range(0f, 1f)] private float m_RunstepLengthen;
+
+        #endregion
+
+
+        #endregion
+        #region Private Non-Serialized
+        #region Components / Custom Classes / Caches
+        private CharacterController m_characterController;
                     private Transform m_yawTransform;
                     private Transform m_camTransform;
                     private HeadBob m_headBob;
@@ -145,6 +165,8 @@ namespace VHS
             {
                 GetComponents();
                 InitVariables();
+
+                
             }
 
             protected virtual void Update()
@@ -181,31 +203,51 @@ namespace VHS
                     ApplyGravity();
                     ApplyMovement();
 
+                    if(!m_previouslyGrounded && m_isGrounded)
+                    {
+                        PlayLandingSound();
+                    }
+
                     m_previouslyGrounded = m_isGrounded;
                 }
             }
 
-            /*
-            
-                private void OnDrawGizmos()
+            private void FixedUpdate()
+            {
+                if (m_characterController.isGrounded)
                 {
-                    Gizmos.color = Color.yellow;
-                    Gizmos.DrawWireSphere((transform.position + m_characterController.center) - Vector3.up * m_finalRayLength, raySphereRadius);
+                    if (m_inAirTimer != 0)
+                    {
+                        PlayJumpSound();
+                    }
                 }
-            
-             */
-            
+           
+                ProgressStepCycle(m_StepInterval);
+            }
+
+        /*
+
+            private void OnDrawGizmos()
+            {
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawWireSphere((transform.position + m_characterController.center) - Vector3.up * m_finalRayLength, raySphereRadius);
+            }
+
+         */
+
         #endregion
 
         #region Custom Methods
-            #region Initialize Methods    
-                protected virtual void GetComponents()
+        #region Initialize Methods    
+        protected virtual void GetComponents()
                 {
                     m_characterController = GetComponent<CharacterController>();
                     m_cameraController = GetComponentInChildren<CameraController>();
                     m_yawTransform = m_cameraController.transform;
                     m_camTransform = GetComponentInChildren<Camera>().transform;
                     m_headBob = new HeadBob(headBobData, moveBackwardsSpeedPercent, moveSideSpeedPercent);
+                    // Footsteps
+                    m_AudioSource = GetComponent<AudioSource>();
                 }
 
                 protected virtual void InitVariables()
@@ -234,6 +276,12 @@ namespace VHS
                     m_headBob.CurrentStateHeight = m_initCamHeight;
 
                     m_walkRunSpeedDifference = runSpeed - walkSpeed;
+
+                    // FootstepSounds
+
+                    m_StepCycle = 0f;
+                    m_NextStep = m_StepCycle / 2f;
+                    footstepSwapper = GetComponent<FootstepSwapper>();
                 }
             #endregion
 
@@ -570,11 +618,67 @@ namespace VHS
         #endregion
 
             #region Footsteps
+
+                private void PlayJumpSound()
+                {
+                    footstepSwapper.CheckLayers();
+                    m_AudioSource.clip = m_JumpSound;
+                    m_AudioSource.Play();
+                }
+
+                private void PlayLandingSound()
+                {
+                    footstepSwapper.CheckLayers();
+                    m_AudioSource.clip = m_LandSound;
+                    m_AudioSource.PlayOneShot(m_LandSound);
+                    m_NextStep = m_StepCycle + .5f;
+                }
+
+                private void PlayFootStepAudio()
+                {
+                    footstepSwapper.CheckLayers();
+                    if (!m_characterController.isGrounded)
+                    {
+                        return;
+                    }
+                    int n = Random.Range(1, m_FootstepSounds.Count);
+                    m_AudioSource.clip = m_FootstepSounds[n];
+                    m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                    m_FootstepSounds[n] = m_FootstepSounds[0];
+                    m_FootstepSounds[0] = m_AudioSource.clip;
+                }
+        
                 public void SwapFootsteps(FootstepCollection collection)
                 {
-                    return;
+                    m_FootstepSounds.Clear();
+                    for (int i = 0; i < collection.footstepSounds.Count; i++)
+                    {
+                        m_FootstepSounds.Add(collection.footstepSounds[i]);
+                    }
+                    m_JumpSound = collection.jumpSound;
+                    m_LandSound = collection.landSound;
                 }
-            #endregion
+                private void ProgressStepCycle(float speed)
+                {
+                    m_IsWalking = (m_currentSpeed != 0);
+
+
+                    if (m_characterController.velocity.sqrMagnitude > 0)
+                    {
+                        m_StepCycle += (m_characterController.velocity.magnitude + (speed * (m_IsWalking ? 1f : m_RunstepLengthen))) * Time.fixedDeltaTime;
+                    }
+
+                    if (!(m_StepCycle > m_NextStep))
+                    {
+                        return;
+                    }
+
+                    m_NextStep = m_StepCycle + m_StepInterval;
+
+                    PlayFootStepAudio();
+                }
+
+        #endregion
         #endregion
     }
 }

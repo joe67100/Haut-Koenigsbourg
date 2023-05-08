@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Pebles_terrain_texture
   m_EditorClassIdentifier: 
   footstepSounds:
-  - {fileID: 8300000, guid: 46100fda67d57774b93da415dd7c9e4f, type: 3}
-  - {fileID: 8300000, guid: 64508016c866a4e4a8ab0f5b020e5836, type: 3}
-  - {fileID: 8300000, guid: ebefe735b9b904d4dab6e70b96f6f263, type: 3}
-  - {fileID: 8300000, guid: 72b4382cae039794bb0dd0df6fb3e292, type: 3}
-  - {fileID: 8300000, guid: af08ef3832215854f9bdaf450911ee8d, type: 3}
-  - {fileID: 8300000, guid: f8d171ce8bbdbab4bb4728814885a4a5, type: 3}
+  - {fileID: 8300000, guid: 32d6f879a34f9f4428ceb6a9cf8a52e5, type: 3}
+  - {fileID: 8300000, guid: d79c0b5ad6047034b9ffabe0e750b4be, type: 3}
+  - {fileID: 8300000, guid: f0f2d087e531ece4e9f120a17468c2d8, type: 3}
+  - {fileID: 8300000, guid: ec8ac52f89e5bd647a92ad6b170266a5, type: 3}
+  - {fileID: 8300000, guid: 27c01e2c090f62f4484093c73f620134, type: 3}
+  - {fileID: 8300000, guid: 1264734ada7f98c42addc5dae2ab65a8, type: 3}
+  - {fileID: 8300000, guid: 7a28fdaea5aa2fe4bba53c444d7c1ce5, type: 3}
   jumpSound: {fileID: 8300000, guid: eaba3f08cf99fa24a897ccfabba4666e, type: 3}
   landSound: {fileID: 8300000, guid: abe45854a0124834898f69a79cba0957, type: 3}

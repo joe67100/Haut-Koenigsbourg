@@ -5,7 +5,6 @@ using VHS;
 
 public class FootstepSwapper : MonoBehaviour
 {
-    private CharacterController character_Controller;
     private FirstPersonController fpc;
     private TerrainChecker checker;
     private string currentLayer;
