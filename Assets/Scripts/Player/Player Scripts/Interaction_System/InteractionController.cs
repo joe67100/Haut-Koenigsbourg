@@ -52,10 +52,9 @@ namespace VHS
 
                 bool _hitSomething = Physics.SphereCast(_ray,raySphereRadius, out _hitInfo, rayDistance, interactableLayer);
 
-                if(_hitSomething)
+                if(_hitSomething && _hitInfo.transform != null && _hitInfo.transform.GetComponent<InteractableBase>() != null)
                 {
                     InteractableBase _interactable = _hitInfo.transform.GetComponent<InteractableBase>();
-
                     if(_interactable != null)
                     {
                         if(interactionData.IsEmpty())
@@ -75,7 +74,10 @@ namespace VHS
                 }
                 else
                 {
-                    uiPanel.ResetUI();
+                    if (uiPanel != null)
+                    {
+                        uiPanel.ResetUI();
+                    }
                     interactionData.ResetData();
                 }
 

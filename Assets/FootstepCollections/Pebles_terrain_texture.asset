@@ -21,4 +21,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1264734ada7f98c42addc5dae2ab65a8, type: 3}
   - {fileID: 8300000, guid: 7a28fdaea5aa2fe4bba53c444d7c1ce5, type: 3}
   jumpSound: {fileID: 8300000, guid: eaba3f08cf99fa24a897ccfabba4666e, type: 3}
-  landSound: {fileID: 8300000, guid: abe45854a0124834898f69a79cba0957, type: 3}
+  landSound: {fileID: 0}

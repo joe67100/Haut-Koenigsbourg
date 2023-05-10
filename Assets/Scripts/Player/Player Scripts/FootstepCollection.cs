@@ -6,5 +6,4 @@ public class FootstepCollection : ScriptableObject
 {
     public List<AudioClip> footstepSounds = new List<AudioClip>();
     public AudioClip jumpSound;
-    public AudioClip landSound;
 }

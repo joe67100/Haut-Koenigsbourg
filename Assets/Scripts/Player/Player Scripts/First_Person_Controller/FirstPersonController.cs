@@ -88,7 +88,6 @@ namespace VHS
                     [Space, Header("Footsteps")]
                     [SerializeField] private List<AudioClip> m_FootstepSounds = new List<AudioClip>();
                     [SerializeField] private AudioClip m_JumpSound;
-                    [SerializeField] private AudioClip m_LandSound;
                     [SerializeField] private float m_StepInterval;
                     private AudioSource m_AudioSource;
                     [SerializeField] private float m_StepCycle;
@@ -202,11 +201,6 @@ namespace VHS
 
                     ApplyGravity();
                     ApplyMovement();
-
-                    if(!m_previouslyGrounded && m_isGrounded)
-                    {
-                        PlayLandingSound();
-                    }
 
                     m_previouslyGrounded = m_isGrounded;
                 }
@@ -605,7 +599,10 @@ namespace VHS
 
                 protected virtual void ApplyMovement()
                 {
-                    m_characterController.Move(m_finalMoveVector * Time.deltaTime);
+                    if (m_characterController && m_characterController.enabled)
+                    {
+                        m_characterController.Move(m_finalMoveVector * Time.deltaTime);
+                    }
                 }
 
                 protected virtual void RotateTowardsCamera()
@@ -624,14 +621,6 @@ namespace VHS
                     footstepSwapper.CheckLayers();
                     m_AudioSource.clip = m_JumpSound;
                     m_AudioSource.Play();
-                }
-
-                private void PlayLandingSound()
-                {
-                    footstepSwapper.CheckLayers();
-                    m_AudioSource.clip = m_LandSound;
-                    m_AudioSource.PlayOneShot(m_LandSound);
-                    m_NextStep = m_StepCycle + .5f;
                 }
 
                 private void PlayFootStepAudio()
@@ -656,7 +645,6 @@ namespace VHS
                         m_FootstepSounds.Add(collection.footstepSounds[i]);
                     }
                     m_JumpSound = collection.jumpSound;
-                    m_LandSound = collection.landSound;
                 }
                 private void ProgressStepCycle(float speed)
                 {

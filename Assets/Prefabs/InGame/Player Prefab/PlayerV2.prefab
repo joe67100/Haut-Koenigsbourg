@@ -462,7 +462,7 @@ GameObject:
   - component: {fileID: 7582324784827369667}
   m_Layer: 0
   m_Name: PlayerV2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -817,6 +817,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7766947178045719483}
     m_Modifications:
+    - target: {fileID: 5779104217081110999, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 7766947179295711212}
     - target: {fileID: 5779104217229886274, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -905,6 +909,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 5779104218536195435, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 7766947179295711212}
+    - target: {fileID: 5779104218611990346, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 7766947179295711201}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}
 --- !u!224 &5963867464366702898 stripped
