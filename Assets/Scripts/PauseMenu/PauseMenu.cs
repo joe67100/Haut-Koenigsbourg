@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Mirror;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
+        GameObject playerObj = NetworkClient.localPlayer.gameObject;
+        characterController = playerObj.GetComponent<CharacterController>();
         if (!characterController.isGrounded) return;
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -27,6 +30,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        
         isPaused = false;
         pauseMenu.SetActive(false);
         characterController.enabled = true;
@@ -45,11 +49,22 @@ public class PauseMenu : MonoBehaviour
         menuSound.Play();
     }
 
-    public void MainMenu()
+    public void ReturnToMainMenu()
     {
+        if (NetworkServer.active)
+        {
+            NetworkManager.singleton.StopHost();
+
+        }
+        else if (NetworkClient.active)
+        {
+            NetworkManager.singleton.StopClient();
+        }
+
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
     }
+
 
     public void QuitGame()
     {
