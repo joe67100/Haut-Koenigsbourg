@@ -82642,7 +82642,7 @@ MonoBehaviour:
   syncDirection: 1
   syncMode: 0
   syncInterval: 0
-  target: {fileID: 1951774851}
+  target: {fileID: 1629575192}
   clientAuthority: 1
   syncPosition: 1
   syncRotation: 1
