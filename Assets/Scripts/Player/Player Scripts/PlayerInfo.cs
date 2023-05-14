@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using System;
 
 public class PlayerInfo : MonoBehaviour
 {
@@ -10,8 +11,6 @@ public class PlayerInfo : MonoBehaviour
     public int DeathsCount = 0;
     public int Score = 0;
 
-    [SerializeField] private GameObject askNameWindow;
-
     void start()
     {
 
@@ -19,10 +18,10 @@ public class PlayerInfo : MonoBehaviour
 
 
     // methode qui permet de définir le nom du joueur
-    public void SetPlayerName(string name)
+    public void SetName(string name)
     {
         string playerName = name;
-        //Debug.Log("Nom changer à : " + playerName);
+        Debug.Log("Nom changé à : '" + playerName + "'");
     }
 
     public void AddKillCount()

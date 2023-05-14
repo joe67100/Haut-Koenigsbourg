@@ -31,7 +31,11 @@ public class ReadInput : MonoBehaviour
     {
         input = s;
         Debug.Log(input);
-        // set name of this object PLayerV2 (with SetPlayerName method)
-        this.gameObject.GetComponent<PlayerInfo>().SetPlayerName(input);
+
+        //TODO 
+        // set the player's name to the input
+
+        //Add the player to the scoreboard
+        
     }
 }
