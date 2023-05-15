@@ -28,21 +28,12 @@ public class ReadInput : MonoBehaviour
 
             // set the player's name (with method setPlayerName from ScoreboardItem.cs)
             GameObject.Find("ScoreboardItem(Clone)").GetComponent<ScoreboardItem>().SetPlayerName(input);
-
-            // scoreboard 
-            GameObject.Find("Scoreboard").GetComponent<Scoreboard>().Hide();
         }
     }
 
     public void ReadStringInput(string s)
     {
         input = s;
-        Debug.Log(input);
-
-        //TODO 
-        // set the player's name to the input
-
-        //Add the player to the scoreboard
-        
+        Debug.Log("Name: " + input);
     }
 }

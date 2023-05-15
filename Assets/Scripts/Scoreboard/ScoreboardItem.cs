@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-// update the scoreboard
+// Item management
 
 public class ScoreboardItem : MonoBehaviour
 {

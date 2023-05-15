@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// HUD Management
+
 public class HUD : MonoBehaviour
 {
     private bool isPaused = false;
