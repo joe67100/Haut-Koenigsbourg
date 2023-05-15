@@ -541,7 +541,7 @@ MonoBehaviour:
   cam: {fileID: 3432468957670585203}
   mask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 191
 --- !u!1 &3432468957640796063
 GameObject:
   m_ObjectHideFlags: 0
