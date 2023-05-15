@@ -6,17 +6,30 @@ public class PlayerSetup : NetworkBehaviour
 
     [SerializeField] Behaviour[] componentsToDisable;
 
+    [SerializeField]
+    private string remoteLayerName = "RemotePlayer";
+
     private void Start()
     {
         if (!isLocalPlayer)
         {
-            for (int i = 0; i < componentsToDisable.Length; i++)
-            {
-                componentsToDisable[i].enabled = false;
-            }
+            DisableComponents();
+            AssignRemoteLayer();
         }
     }
 
+    private void AssignRemoteLayer()
+    {
+        gameObject.layer = LayerMask.NameToLayer(remoteLayerName);
+    }
+
+    private void DisableComponents()
+    {
+        for (int i = 0; i < componentsToDisable.Length; i++)
+        {
+            componentsToDisable[i].enabled = false;
+        }
+    }
 
     public override void OnStartClient()
     {
