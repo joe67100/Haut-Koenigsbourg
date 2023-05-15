@@ -20,7 +20,6 @@ GameObject:
   - component: {fileID: 3432468957457073933}
   - component: {fileID: 3432468957457073932}
   - component: {fileID: 4756852578859317016}
-  - component: {fileID: 4954208166474796621}
   - component: {fileID: -477607561497517387}
   - component: {fileID: 4397442879160977524}
   m_Layer: 6
@@ -495,18 +494,6 @@ MonoBehaviour:
   syncInterval: 0
   clientAuthority: 1
   animator: {fileID: 3382732185359879854}
---- !u!114 &4954208166474796621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3432468957457073930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1377c37ccbef38749919f653a4c2ff28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-477607561497517387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -519,6 +506,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1377c37ccbef38749919f653a4c2ff28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  maxHealth: 100
 --- !u!114 &4397442879160977524
 MonoBehaviour:
   m_ObjectHideFlags: 0
