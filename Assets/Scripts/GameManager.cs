@@ -20,18 +20,8 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void OnGUI()
+    public static Player GetPlayer(string playerId)
     {
-        GUILayout.BeginArea(new Rect(200, 200, 200, 500));
-        GUILayout.BeginVertical();
-
-        foreach (string playerId in players.Keys)
-        {
-            GUILayout.Label(playerId + " - " + players[playerId].transform.name);
-        }
-
-        GUILayout.EndVertical();
-        GUILayout.EndArea();
+        return players[playerId];
     }
-
 }
