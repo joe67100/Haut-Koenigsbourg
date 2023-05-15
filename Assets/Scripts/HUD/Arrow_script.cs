@@ -17,6 +17,6 @@ public class Arrow_script : MonoBehaviour
     void Update()
     {
         //pivote l'image (uniquement valeur z de l'image) en fonction de la rotation de la caméra du joueur
-        arrow.transform.rotation = Quaternion.Euler(0, 0, -player.transform.rotation.eulerAngles.y - 23);
+        //arrow.transform.rotation = Quaternion.Euler(0, 0, -player.transform.rotation.eulerAngles.y - 23);
     }
 }
