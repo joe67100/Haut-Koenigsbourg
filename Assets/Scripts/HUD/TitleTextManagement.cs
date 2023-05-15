@@ -18,9 +18,7 @@ public class TitleTextManagement : MonoBehaviour
 
     void Start()
     {
-        titleText.SetActive(true);
-        // Appartion du personnage à la mine
-        // SetText("La mine");
+
     }
 
     // Défini le texte du titre

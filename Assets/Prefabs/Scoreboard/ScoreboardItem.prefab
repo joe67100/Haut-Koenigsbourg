@@ -53,6 +53,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7344223f3a701c40a8c483659f986eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usernameText: {fileID: 8941020638477922677}
+  killsText: {fileID: 1231406934604167729}
+  deathsText: {fileID: 61969507271178115}
 --- !u!1 &1587122125700382571
 GameObject:
   m_ObjectHideFlags: 0

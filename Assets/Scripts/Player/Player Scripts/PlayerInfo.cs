@@ -21,7 +21,6 @@ public class PlayerInfo : MonoBehaviour
     public void SetName(string name)
     {
         string playerName = name;
-        Debug.Log("Nom changé à : '" + playerName + "'");
     }
 
     public void AddKillCount()

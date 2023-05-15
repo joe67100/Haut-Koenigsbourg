@@ -8,7 +8,7 @@ public class HUD : MonoBehaviour
     private bool isPaused = false;
     [SerializeField] private GameObject StaticHUD;
     [SerializeField] private GameObject askNameWindow;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +36,6 @@ public class HUD : MonoBehaviour
                 }
             }
         }
-
     }
 
     private void Pause()

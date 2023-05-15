@@ -18,4 +18,9 @@ public class ScoreboardItem : MonoBehaviour
         killsText.text = "0";
         deathsText.text = "0";
     }
+
+    public void SetPlayerName(string name)
+    {
+        usernameText.text = name;
+    }
 }

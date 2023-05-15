@@ -9,6 +9,7 @@ public class ReadInput : MonoBehaviour
 {
     public string input;
     [SerializeField] private GameObject askNameWindow;
+    [SerializeField] private GameObject titleText;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,12 @@ public class ReadInput : MonoBehaviour
             // desactive the askNameWindow and activate the StaticHUD
             GameObject.Find("HUD").GetComponent<HUD>().Resume();
             askNameWindow.SetActive(false);
+
+            // set the player's name (with method setPlayerName from ScoreboardItem.cs)
+            GameObject.Find("ScoreboardItem(Clone)").GetComponent<ScoreboardItem>().SetPlayerName(input);
+
+            // scoreboard 
+            GameObject.Find("Scoreboard").GetComponent<Scoreboard>().Hide();
         }
     }
 
