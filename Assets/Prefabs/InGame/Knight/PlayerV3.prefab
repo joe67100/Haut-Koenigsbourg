@@ -408,6 +408,8 @@ MonoBehaviour:
   - {fileID: 3432468958529145487}
   - {fileID: 9192151397094553588}
   - {fileID: 1404319965963814662}
+  - {fileID: 4397442879160977524}
+  remoteLayerName: RemotePlayer
 --- !u!114 &3432468957457073933
 MonoBehaviour:
   m_ObjectHideFlags: 0
