@@ -46,7 +46,7 @@ namespace VHS
             public bool CrouchClicked
             {
                 get => m_crouchClicked;
-                set => m_crouchClicked = value;
+                set => m_crouchClicked = false;
             }
 
             public bool JumpClicked

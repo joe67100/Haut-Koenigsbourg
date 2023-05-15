@@ -48,13 +48,13 @@ public class animationStateController : MonoBehaviour
         bool isRunning = animator.GetBool(isRunningHash);
         bool isJumping = animator.GetBool(isJumpingHash);
         bool isAttacking = animator.GetBool(isAttacking1Hash) || animator.GetBool(isAttacking2Hash) || animator.GetBool(isAttacking3Hash) ? true : false;
-        bool forwardPressed = Input.GetKey(KeyCode.UpArrow);
-        bool backwardPressed = Input.GetKey(KeyCode.DownArrow);
-        bool leftPressed = Input.GetKey(KeyCode.LeftArrow);
-        bool rightPressed = Input.GetKey(KeyCode.RightArrow);
+        bool forwardPressed = (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.UpArrow));
+        bool backwardPressed = (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow));
+        bool leftPressed = (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.LeftArrow));
+        bool rightPressed = (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow));
         bool runPressed = Input.GetKey(KeyCode.LeftShift);
         bool jumpPressed = Input.GetKey(KeyCode.Space);
-        bool attackPressed = Input.GetKey(KeyCode.A);
+        bool attackPressed = Input.GetKey(KeyCode.Mouse0);
 
         // Player is walking
         if (!isWalking && forwardPressed)

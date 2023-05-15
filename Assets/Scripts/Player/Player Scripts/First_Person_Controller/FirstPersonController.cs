@@ -94,7 +94,7 @@ namespace VHS
                     [SerializeField] private float m_NextStep;
                     private FootstepSwapper footstepSwapper;
                     public FootstepCollection[] terrainFootstepCollections;
-                    [SerializeField] private bool m_IsWalking;
+                    public bool m_IsWalking;
                     [SerializeField][Range(0f, 1f)] private float m_RunstepLengthen;
 
         #endregion
