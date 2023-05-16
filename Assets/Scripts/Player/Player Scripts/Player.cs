@@ -57,6 +57,20 @@ public class Player : NetworkBehaviour
         }
     }
 
+    // S'infliger des dégâts pour test
+    private void Update()
+    {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            RpcTakeDamage(999);
+        }
+    }
+
     [ClientRpc]
     public void RpcTakeDamage(float amount)
     {
