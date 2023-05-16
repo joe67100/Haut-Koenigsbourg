@@ -90,6 +90,7 @@ public class Player : NetworkBehaviour
         }
 
         currentHealth -= amount;
+        currentHealth = Mathf.Max(currentHealth, 0); // Empêche d'aller en dessous de 0 PDV
         Debug.Log(transform.name + " a maintenant : " + currentHealth + " points de vies");
         if(currentHealth <= 0)
         {
