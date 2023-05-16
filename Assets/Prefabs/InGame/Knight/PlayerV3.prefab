@@ -20,8 +20,9 @@ GameObject:
   - component: {fileID: 3432468957457073933}
   - component: {fileID: 3432468957457073932}
   - component: {fileID: 4756852578859317016}
-  - component: {fileID: -477607561497517387}
   - component: {fileID: 4397442879160977524}
+  - component: {fileID: 1674579130843914132}
+  - component: {fileID: 2517386998544022719}
   m_Layer: 6
   m_Name: PlayerV3
   m_TagString: Player
@@ -494,25 +495,6 @@ MonoBehaviour:
   syncInterval: 0
   clientAuthority: 1
   animator: {fileID: 3382732185359879854}
---- !u!114 &1674579130843914132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3432468957457073930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1377c37ccbef38749919f653a4c2ff28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  maxHealth: 100
-  disableOnDeath:
-  - {fileID: 4397442879160977524}
-  - {fileID: 3432468957457073924}
 --- !u!114 &4397442879160977524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,6 +518,34 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 191
+--- !u!114 &1674579130843914132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3432468957457073930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1377c37ccbef38749919f653a4c2ff28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  maxHealth: 100
+  disableOnDeath:
+  - {fileID: 4397442879160977524}
+  - {fileID: 3432468957457073924}
+--- !u!114 &2517386998544022719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3432468957457073930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8de6069c3e18bb47aebe3d9f66f9d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -2027,6 +2037,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3432468957640796048}
     m_Modifications:
+    - target: {fileID: 5008866489247543935, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5779104216853965434, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -2034,9 +2048,6 @@ PrefabInstance:
     - target: {fileID: 5779104217000642459, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}
       propertyPath: m_Layer
       value: 6
-    - target: {fileID: 5008866489247543935, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5779104217081110999, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}
       propertyPath: player
@@ -2197,6 +2208,22 @@ PrefabInstance:
     - target: {fileID: 5779104218611990348, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5779104218611990349, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 472.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5779104218611990349, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1263.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5779104218611990349, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 339.0003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5779104218611990351, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5779104218717718497, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}
       propertyPath: m_Layer
