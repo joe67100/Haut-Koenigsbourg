@@ -18,11 +18,9 @@ GameObject:
   - component: {fileID: 3432468957457073935}
   - component: {fileID: 3432468957457073934}
   - component: {fileID: 3432468957457073933}
-  - component: {fileID: 3432468957457073932}
   - component: {fileID: 4756852578859317016}
   - component: {fileID: 4397442879160977524}
   - component: {fileID: 1674579130843914132}
-  - component: {fileID: 2517386998544022719}
   m_Layer: 6
   m_Name: PlayerV3
   m_TagString: Player
@@ -406,7 +404,6 @@ MonoBehaviour:
   - {fileID: 3432468958529145473}
   - {fileID: 3432468958529145472}
   - {fileID: 3432468958529145487}
-  - {fileID: 9192151397094553588}
   - {fileID: 1404319965963814662}
   - {fileID: 4397442879160977524}
   remoteLayerName: RemotePlayer
@@ -426,40 +423,6 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 3432468957457073931}
-  clientAuthority: 1
-  syncPosition: 1
-  syncRotation: 1
-  syncScale: 0
-  interpolatePosition: 1
-  interpolateRotation: 1
-  interpolateScale: 1
-  showGizmos: 0
-  showOverlay: 0
-  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
-  onlySyncOnChange: 1
-  onlySyncOnChangeCorrectionMultiplier: 2
-  sendIntervalMultiplier: 3
-  rotationSensitivity: 0.01
-  compressRotation: 0
-  positionPrecision: 0.01
-  scalePrecision: 0.01
-  timelineOffset: 0
---- !u!114 &3432468957457073932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3432468957457073930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ff3ba0becae47b8b9381191598957c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 1
-  syncMode: 0
-  syncInterval: 0
-  target: {fileID: 3432468957640796048}
   clientAuthority: 1
   syncPosition: 1
   syncRotation: 1
@@ -537,18 +500,6 @@ MonoBehaviour:
   disableOnDeath:
   - {fileID: 4397442879160977524}
   - {fileID: 3432468957457073924}
---- !u!114 &2517386998544022719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3432468957457073930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8de6069c3e18bb47aebe3d9f66f9d83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   PlayerName: Player
   KillsCount: 0
   DeathsCount: 0
@@ -2278,11 +2229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98224fcd025c6b44a8202d89436ba2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!223 &9192151397094553588 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 5779104217229886273, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}
-  m_PrefabInstance: {fileID: 3432468958712526005}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &9192151397094553591 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5779104217229886274, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}

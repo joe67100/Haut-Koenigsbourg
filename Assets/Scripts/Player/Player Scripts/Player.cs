@@ -12,17 +12,21 @@ public class Player : NetworkBehaviour
         protected set { _isDead = value; }
     }
 
+    [Space, Header("Player stats")]
     [SerializeField]
     private float maxHealth = 100f;
-
     [SyncVar(hook = nameof(OnHealthChanged))]
     private float currentHealth;
-
     private HealthBar healthBar;
-
     [SerializeField]
     private Behaviour[] disableOnDeath;
     private bool[] wasEnabledOnStart;
+
+    [Space, Header("Player Infos")]
+    public string PlayerName;
+    public int KillsCount = 0;
+    public int DeathsCount = 0;
+    public int Score = 0;
 
     public void Setup()
     {
@@ -126,4 +130,24 @@ public class Player : NetworkBehaviour
 
         StartCoroutine(Respawn());
     }
+
+    // Old playInfo.cs
+
+    // methode qui permet de définir le nom du joueur
+    public void SetName(string name)
+    {
+        string playerName = name;
+    }
+
+    public void AddKillCount()
+    {
+        KillsCount++;
+        Score = Score + 100;
+    }
+
+    public void AddDeathCount()
+    {
+        DeathsCount++;
+    }
+
 }
