@@ -11,11 +11,6 @@ public class PlayerInfo : MonoBehaviour
     public int DeathsCount = 0;
     public int Score = 0;
 
-    void start()
-    {
-
-    }
-
 
     // methode qui permet de définir le nom du joueur
     public void SetName(string name)
