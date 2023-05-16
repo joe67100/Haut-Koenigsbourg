@@ -16,6 +16,8 @@ public class PlayerSetup : NetworkBehaviour
             DisableComponents();
             AssignRemoteLayer();
         }
+
+        GetComponent<Player>().Setup();
     }
 
     private void AssignRemoteLayer()

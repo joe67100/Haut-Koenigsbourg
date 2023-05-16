@@ -3,6 +3,14 @@ using Mirror;
 
 public class Player : NetworkBehaviour
 {
+    [SyncVar]
+    private bool _isDead = false;
+    public bool isDead
+    {
+        get { return _isDead; }
+        protected set { _isDead = value; }
+    }
+
     [SerializeField]
     private float maxHealth = 100f;
 
@@ -11,8 +19,18 @@ public class Player : NetworkBehaviour
 
     private HealthBar healthBar;
 
-    private void Awake()
+    [SerializeField]
+    private Behaviour[] disableOnDeath;
+    private bool[] wasEnabledOnStart;
+
+    public void Setup()
     {
+        wasEnabledOnStart = new bool[disableOnDeath.Length];
+        for (int i = 0; i < disableOnDeath; i++)
+        {
+            wasEnabledOnStart[i] = disableOnDeath[i].enabled;
+        }
+
         SetDefaults();
     }
 
@@ -24,13 +42,35 @@ public class Player : NetworkBehaviour
 
     public void SetDefaults()
     {
+        isDead = false;
         currentHealth = maxHealth;
+
+        for(int i =0; i < disableOnDeath.Length; i++)
+        {
+            disableOnDeath[i].enabled = wasEnabledOnStart[i];
+        }
+
+        Collider col = GetComponent<Collider>();
+        if (col != null)
+        {
+            col.enabled = true;
+        }
     }
 
-    public void TakeDamage(float amount)
+    [ClientRpc]
+    public void RpcTakeDamage(float amount)
     {
+        if (isDead)
+        {
+            return;
+        }
+
         currentHealth -= amount;
         Debug.Log(transform.name + " a maintenant : " + currentHealth + " points de vies");
+        if(currentHealth <= 0)
+        {
+            Die();
+        }
     }
 
     private void OnHealthChanged(float oldHealth, float newHealth)
@@ -39,5 +79,24 @@ public class Player : NetworkBehaviour
         {
             healthBar.SetHealth((int)newHealth);
         }
+    }
+
+    private void Die()
+    {
+        isDead = true;
+
+        for(int i =0; i < disableOnDeath; i++)
+        {
+            disableOnDeath[i].enabled = false;
+        }
+
+
+        Collider col = GetComponent<Collider>();
+        if (col != null)
+        {
+            col.enabled = false;
+        }
+
+        Debug.Log(transform.name + " a été éliminé.");
     }
 }
