@@ -1,5 +1,6 @@
 using UnityEngine;
 using Mirror;
+using System.Collections;
 
 public class Player : NetworkBehaviour
 {
@@ -26,7 +27,7 @@ public class Player : NetworkBehaviour
     public void Setup()
     {
         wasEnabledOnStart = new bool[disableOnDeath.Length];
-        for (int i = 0; i < disableOnDeath; i++)
+        for (int i = 0; i < disableOnDeath.Length; i++)
         {
             wasEnabledOnStart[i] = disableOnDeath[i].enabled;
         }
@@ -55,6 +56,15 @@ public class Player : NetworkBehaviour
         {
             col.enabled = true;
         }
+    }
+
+    private IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(3f);
+        SetDefaults();
+        Transform spawnPoint = NetworkManager.singleton.GetStartPosition();
+        transform.position = spawnPoint.position;
+        transform.rotation = spawnPoint.rotation;
     }
 
     // S'infliger des dégâts pour test
@@ -99,7 +109,7 @@ public class Player : NetworkBehaviour
     {
         isDead = true;
 
-        for(int i =0; i < disableOnDeath; i++)
+        for(int i =0; i < disableOnDeath.Length; i++)
         {
             disableOnDeath[i].enabled = false;
         }
@@ -112,5 +122,7 @@ public class Player : NetworkBehaviour
         }
 
         Debug.Log(transform.name + " a été éliminé.");
+
+        StartCoroutine(Respawn());
     }
 }
