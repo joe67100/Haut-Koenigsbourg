@@ -1,5 +1,6 @@
 using UnityEngine;
 using Mirror;
+using System;
 
 public class MainMenu : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject AudioInGame;
     [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private TMPro.TMP_InputField ipInputField;
 
     private void Update()
     {
@@ -32,6 +34,11 @@ public class MainMenu : MonoBehaviour
                 menuCanvas.gameObject.SetActive(false);
             }
         }
+
+        if (NetworkClient.isConnected)
+        {
+            UpdateGameObjects();
+        }
     }
     
     public void UpdateGameObjects()
@@ -50,7 +57,6 @@ public class MainMenu : MonoBehaviour
                 if (Application.platform != RuntimePlatform.WebGLPlayer)
                 {
                     networkManager.StartHost();
-                    UpdateGameObjects();
                 }
             }   
         }
@@ -58,20 +64,13 @@ public class MainMenu : MonoBehaviour
 
     public void StartClient()
     {
-        if (!NetworkClient.isConnected && !NetworkServer.active)
+        string ipAddress = ipInputField.text;
+        if (string.IsNullOrWhiteSpace(ipAddress))
         {
-            if (!NetworkClient.active)
-            {
-                Debug.Log("J'ai réussi à me connecter");
-                networkManager.StartClient();
-                UpdateGameObjects();
-            }
-            else
-            {
-                Debug.Log("Trying to connect");
-            }
+            ipAddress = "localhost";
         }
+
+        networkManager.networkAddress = ipAddress;
+        networkManager.StartClient();
     }
-
-
 }

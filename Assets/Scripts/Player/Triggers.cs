@@ -5,8 +5,8 @@ using UnityEngine;
 public class Triggers : MonoBehaviour
 {
     public GameObject player;
-    public GameObject text;  
-    
+    public GameObject text;
+
     // with position values
     private float x;
     private float z;
@@ -15,6 +15,7 @@ public class Triggers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (player.transform.position.z < 810)
         {
             // calls SetText() from TitleTextManagement.cs
@@ -27,6 +28,4 @@ public class Triggers : MonoBehaviour
             text.GetComponent<TitleTextManagement>().SetText("La mine");
         }
     }
-
-
 }
