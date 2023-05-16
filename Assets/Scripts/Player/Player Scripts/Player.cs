@@ -60,7 +60,7 @@ public class Player : NetworkBehaviour
 
     private IEnumerator Respawn()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(GameManager.instance.matchSettings.respawnTimer);
         SetDefaults();
         Transform spawnPoint = NetworkManager.singleton.GetStartPosition();
         transform.position = spawnPoint.position;
