@@ -530,8 +530,8 @@ MonoBehaviour:
   syncInterval: 0
   weapon:
     name: Gourdin
-    damage: 50
-    range: 100
+    damage: 10
+    range: 1
   cam: {fileID: 3432468957670585203}
   mask:
     serializedVersion: 2

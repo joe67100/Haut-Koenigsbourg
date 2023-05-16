@@ -1,5 +1,6 @@
 using UnityEngine;
 using Mirror;
+using System.Collections;
 
 public class PlayerHit : NetworkBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerHit : NetworkBehaviour
 
     [SerializeField]
     private LayerMask mask;
+
+    private bool canHit = true; // Traque si le joueur peut attaquer ou pas
 
     void Start()
     {
@@ -22,10 +25,21 @@ public class PlayerHit : NetworkBehaviour
 
     private void Update()
     {
+        if(!isLocalPlayer ||!canHit)
+            return;
+
         if (Input.GetButtonDown("Fire1"))
         {
+            StartCoroutine(HitCooldown());
             Hit();
         }
+    }
+
+    private IEnumerator HitCooldown()
+    {
+        canHit = false; // Désactiver le coup temporairement
+        yield return new WaitForSeconds(2f);
+        canHit = true;
     }
 
     [Client]
