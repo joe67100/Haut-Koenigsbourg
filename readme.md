@@ -10,13 +10,13 @@ Dans un royaume en proie à la guerre, la noble monarchie lutte contre les attaq
 
 ## Installation des sources
 
-- Cliquez sur `Releases`
+- Cliquez sur `Releases` dans le dépôt github
 
-- Téléchargez le dossier `build_hautkoenigsbourg`
+- Téléchargez le dossier `build_hautkoenigsbourg.zip`
 
 ## Jouer
 
-> Si vous avez téléchargé le dossier `build_hautkoenigsbourg`, désarchivez-le puis lancer l'exécutable `haut-koenigsbourg.exe`
+> Si vous avez téléchargé le dossier `build_hautkoenigsbourg.zip`, désarchivez-le puis lancer l'exécutable `Haut-Koenigsbourg.exe`
 
 - Vous aurez ensuite la possibilité de créer une nouvelle partie pour commencer votre aventure.
 
