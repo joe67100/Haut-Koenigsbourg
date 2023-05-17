@@ -13,7 +13,7 @@ namespace VHS
         #endregion
 
         #region BuiltIn Methods
-            void Start()
+        void Start()
             {
                 cameraInputData.ResetInput();
                 movementInputData.ResetInput();
