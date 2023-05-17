@@ -6,6 +6,7 @@ public class MinimapScript : MonoBehaviour
 {
     public Transform player;
 
+    
     void LateUpdate()
     {
         Vector3 newPosition = player.position;
@@ -15,6 +16,7 @@ public class MinimapScript : MonoBehaviour
         // Camera tourne avec le joueur 
         transform.rotation = Quaternion.Euler(90f, player.eulerAngles.y, 0f);
     }
+    
     // n'affiche pas les reflets 
     void OnPreRender()
     {

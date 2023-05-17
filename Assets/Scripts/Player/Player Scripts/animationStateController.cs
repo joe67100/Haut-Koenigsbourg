@@ -33,9 +33,12 @@ public class animationStateController : MonoBehaviour
 
     public void StopAttacking()
     {
-        animator.SetBool(isAttacking1Hash, false);
-        animator.SetBool(isAttacking2Hash, false);
-        animator.SetBool(isAttacking3Hash, false);
+        if (animator != null)
+        {
+            animator.SetBool(isAttacking1Hash, false);
+            animator.SetBool(isAttacking2Hash, false);
+            animator.SetBool(isAttacking3Hash, false);
+        }
     }
 
     // Update is called once per frame

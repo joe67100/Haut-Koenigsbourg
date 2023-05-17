@@ -46,6 +46,7 @@ public class AudioManager : MonoBehaviour
         if (isPlayingTrack01)
         {
             track02.clip = newClip;
+            track02.loop = true;
             track02.Play();
             track02.volume = 0.5f;
             
@@ -61,6 +62,7 @@ public class AudioManager : MonoBehaviour
         else
         {
             track01.clip = newClip;
+            track01.loop = true;
             track01.Play();
             track01.volume = 0.5f;
             while (timeElapsed < timeToFade)
