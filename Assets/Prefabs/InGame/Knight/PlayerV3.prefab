@@ -1993,6 +1993,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3432468957640796048}
     m_Modifications:
+    - target: {fileID: 1726324527868428530, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726324527868428530, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 3432468958547893221}
     - target: {fileID: 5008866489247543935, guid: ca2bde1ae60ab5840b639c8af48e7d72, type: 3}
       propertyPath: m_IsActive
       value: 0

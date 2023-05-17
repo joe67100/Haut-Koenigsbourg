@@ -180,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreboardItemPrefab: {fileID: 7729020443417610467}
   scoreboardItemContainer: {fileID: 841367534688365152}
+  scoreboardCanvas: {fileID: 0}
 --- !u!1001 &7534033131538544670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -187,6 +188,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 841367534688365152}
     m_Modifications:
+    - target: {fileID: 61969507271178115, guid: 93153df7829706b41bbd4a12595a798c, type: 3}
+      propertyPath: m_text
+      value: MORTS
+      objectReference: {fileID: 0}
     - target: {fileID: 273800471259607293, guid: 93153df7829706b41bbd4a12595a798c, type: 3}
       propertyPath: m_Name
       value: ScoreboardItem
@@ -274,6 +279,14 @@ PrefabInstance:
     - target: {fileID: 1141901521218160194, guid: 93153df7829706b41bbd4a12595a798c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231406934604167729, guid: 93153df7829706b41bbd4a12595a798c, type: 3}
+      propertyPath: m_text
+      value: "TU\xC9S"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8941020638477922677, guid: 93153df7829706b41bbd4a12595a798c, type: 3}
+      propertyPath: m_text
+      value: PSEUDO
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93153df7829706b41bbd4a12595a798c, type: 3}
